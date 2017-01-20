@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+   <meta charset="utf-8">
+   <title>Angular Form</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <link rel="icon" type="image/png" href="images/reddit-alien-zombied.jpg" sizes="16x16">
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+   <link rel="stylesheet" href="/.css/app.css">
+   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+</head>
+<div class="row">
+   <div class="col-md-8">
+
+       <form novalidate name="registrationForm">
+           <div ng-class="{ 'has-error' : registrationForm.email.$touched && registrationForm.email.$invalid }">
+               <label for="title">Email</label>
+               <input type="email" id="email" name="email" class="form-control" ng-model="$ctrl.email"   required>
+               <p ng-show="registrationForm.email.$touched && registrationForm.email.$error.required">This Input Is Required</p>
+               <p ng-show="registrationForm.email.$touched && registrationForm.email.$error.email">Must Be A Valid Email Address</p>
+
+
+           </div>
+           <div ng-class="{ 'has-error' : registrationForm.verifyEmail.$touched && registrationForm.verifyEmail.$error.required }">
+               <label for="body">Verify Email</label>
+               <input type="email" id="verifyEmail" name="verifyEmail" class="form-control" ng-model="$ctrl.verifyEmail" match-form="registrationForm.email.$viewValue" required>
+               <p ng-show="registrationForm.email.$touched && registrationForm.email.$error.email">Must Be A Valid Email Address</p>
+               <p ng-show="registrationForm.verifyEmail.$touched && registrationForm.verifyEmail.$error.required">This Input Is Required</p>
+               <p ng-show="registrationForm.verifyEmail.$touched && registrationForm.verifyEmail.$error.match">Email Addresses Must Match</p>
+
+           </div>
+
+           <div ng-class="{ 'has-error' : registrationForm.password.$touched && registrationForm.password.$invalid }">
+               <label for="password">Password</label>
+               <input type="password" id="author" name="password" class="form-control" ng-minlength=8 ng-model="$ctrl.password" check-password="" required>
+               <p ng-show="registrationForm.password.$touched && registrationForm.password.$error.special">Passwords must have letters, numbers, special characters and be at least 8 characters long</p>
+               <p ng-show="registrationForm.password.$touched && registrationForm.password.$error.minlength">Passwords must be at least 8 characters long</p>
+
+           </div>
+           <div ng-class="{ 'has-error' : registrationForm.verifyPassword.$touched && registrationForm.verifyPassword.$invalid }">
+               <label for="imageurl">Verify Password</label>
+               <input type="password" id="verifyPassword" name="verifyPassword" class="form-control" ng-model="$ctrl.verifyPassword" match-form="registrationForm.password.$viewValue" required>
+               <p ng-show="registrationForm.verifyPassword.$touched && registrationForm.verifyPassword.$error.required">Required</p>
+               <p ng-show="registrationForm.verifyPassword.$touched && registrationForm.verifyPassword.$error.match">Passwords Must Match</p>
+
+
+           </div>
+           <div class="form-group">
+             <button type="submit" class="btn btn-primary" ng-disabled="registrationForm.$invalid">
+               Register
+             </button>
+         </div>
+       </form>
+               </div>
+           </div>
+       </div>

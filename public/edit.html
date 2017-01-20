@@ -1,0 +1,51 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </button>
+            <a class="navbar-brand">Reddit Clone</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        </div>
+    </div>
+</nav>
+<main class="container">
+    <div class="row" ng-show="$ctrl.showPost">
+        <div class="col-md-8">
+            <form ng-submit="$ctrl.addPost()" name="newPostForm" novalidate>
+                <div ng-class="{ 'has-error' : newPostForm.title.$invalid && newPostForm.title.$touched }">
+                    <label for="title">Title</label>
+                    <input id="title" class="form-control" ng-model="$ctrl.post.title" name="title" ng-minlength=1 required>
+                    <small class="error text-warning" ng-show="newPostForm.title.$invalid && newPostForm.title.$touched">Title is required.</small>
+
+                </div>
+                <div ng-class="{ 'has-error' : newPostForm.body.$invalid && newPostForm.body.$touched }">
+                    <label for="body">Body</label>
+                    <textarea id="body" class="form-control" ng-model="$ctrl.post.body" name="body" ng-minlength=1 required></textarea>
+                    <small class="error text-warning" ng-show="newPostForm.body.$invalid && newPostForm.body.$touched">Body is required.</small>
+
+                </div>
+                <div ng-class="{ 'has-error' : newPostForm.author.$invalid && newPostForm.author.$touched }">
+                    <label for="author">Author</label>
+                    <input id="author" class="form-control" ng-model="$ctrl.post.author" name="author" ng-minlength=1 required>
+                    <small class="error text-warning" ng-show="newPostForm.author.$invalid && newPostForm.author.$touched">Author is required.</small>
+
+                </div>
+                <div ng-class="{ 'has-error' : newPostForm.image_url.$invalid && newPostForm.image_url.$touched }">
+                    <label for="image-url">Image URL</label>
+                    <input id="image-url" class="form-control" ng-model="$ctrl.post.image_url" type="url" name="image_url" ng-minlength=1 required>
+                    <small class="error text-warning" ng-show="newPostForm.image_url.$invalid && newPostForm.image_url.$touched">Must be a valid url.</small>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" ng-click=" $ctrl.check()" ng-disabled="newPostForm.$invalid">
+               Create Post
+               </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
