@@ -1,25 +1,24 @@
 // BUGS: it doesn't update dynamically... requires to click.
 
 
-(function() {
-  'use strict';
+(function () {
   angular.module('app', ['ui.router'])
-  .config(config)
+  .config(config);
 
   function config($stateProvider) {
-    var editPost = {
+    const editPost = {
       name: 'editPost',
-      url: "/",
-      template: '<house-new></house-new>'
-    }
+      url: '/',
+      template: '<house-new></house-new>',
+    };
 
-    var home = {
+    const home = {
       name: 'home',
       url: '/',
-      template: '<reddit></reddit>'
-    }
+      template: '<reddit></reddit>',
+    };
 
     $stateProvider.state(home);
     $stateProvider.state(editPost);
-  }//end of config function
+  }// end of config function
 }());

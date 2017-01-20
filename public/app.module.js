@@ -1,6 +1,5 @@
-(function() {
-  'use strict'
+(function () {
+
 
   // var myApp = angular.module('app', ['ui.router'])
-
 }());
