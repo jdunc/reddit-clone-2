@@ -14,7 +14,7 @@
 
         const home = {
             name: 'home',
-            url: '/',
+            url: '/index',
             template: '<reddit></reddit>',
         };
 
