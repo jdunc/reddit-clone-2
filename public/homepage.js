@@ -109,6 +109,20 @@
             });
         };
         vm.addComment = function(post) {
+          $http({
+              method: 'POST',
+              url: `${post.id}/comments`,
+              data: {
+                content: post.tempComment,
+              },
+          }).then((response) => {
+            $http({
+                method: 'GET',
+                url: `${post.id}/comments`
+            }).then((comments) => {
+                vm.posts[vm.posts.indexOf(post)].comments = comments;
+            });
+          });
             vm.posts[vm.posts.indexOf(post)].comments.push(post.tempComment);
             delete post.tempComment;
         };
