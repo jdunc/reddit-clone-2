@@ -48,8 +48,8 @@
                 url: `/posts/${vm.postId}`,
             }).then((response) => {
                 vm.post = response.data;
-                vm.post.image_url = '';
-                vm.post.body = '';
+                // vm.post.image_url = '';
+                // vm.post.body = '';
                 console.log('new data', vm.post);
             });
         }; // end of getPosts

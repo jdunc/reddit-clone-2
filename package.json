@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "webdriver-manager update",
     "test": "NODE_ENV=test protractor test/conf.js",
-    "start": "lite-server"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",

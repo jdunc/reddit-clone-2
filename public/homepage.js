@@ -14,8 +14,8 @@
             vm.showPost = true;
             vm.sortBy = 'date';
             // Test post.
-            vm.getPosts();
             vm.posts = [];
+            vm.getPosts();
             console.log('Angular Initialized.');
             // Check when all posts were created ~60 seconds.
             (function counter() {
@@ -61,8 +61,8 @@
                     if (diffMins < 1) {
                         vm.posts[i].timePassed = 'Recently posted.';
                     }
-                    console.log(`Posted ${i}: ${diffDays} days, ${diffHrs} hours, ${diffMins} minutes.`);
-                    console.log(vm.posts[i].timePassed);
+                    // console.log(`Posted ${i}: ${diffDays} days, ${diffHrs} hours, ${diffMins} minutes.`);
+                    // console.log(vm.posts[i].timePassed);
                 }
                 console.log(vm.posts);
             } else {
